@@ -79,7 +79,7 @@ async function createServer() {
 		}
 	});
 
-	app.listen(3000, () => {
+	app.listen(port, () => {
 		console.log(`服务启动, `, isProd ? "生产环境" : "开发环境");
 	});
 }

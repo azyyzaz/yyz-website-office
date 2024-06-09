@@ -1,6 +1,8 @@
 <template>
 	<div>
 		<el-affix :offset="0"><Header /></el-affix>
+		<!-- 这里我就不写了!!! -->
+		<!-- hhhah -->
 		<GoTop />
 		<router-view class="router-view" />
 	</div>

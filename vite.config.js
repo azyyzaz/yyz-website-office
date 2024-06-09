@@ -4,6 +4,7 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
 	// base: import.meta.env.DEV ? "/" : "/yyz-website-office/",
 	plugins: [vue()],
+	base: "/yyz-website-office/",
 	server: {
 		port: 5173,
 	},
