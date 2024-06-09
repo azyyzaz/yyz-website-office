@@ -12,11 +12,11 @@ const routes = [
 		path: "/",
 		component: Layouts,
 
-		redirect: "/home",
+		redirect: "/",
 		children: [
 			{
 				name: "home",
-				path: "/home",
+				path: "/",
 				component: Home,
 			},
 			{
@@ -47,9 +47,16 @@ const routes = [
 		],
 	},
 ];
+
 const router = createRouter({
-	history: createWebHistory(),
+	history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
 	routes,
 });
-
 export default router;
+
+export function createSSRRouter() {
+	return createRouter({
+		history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
+		routes,
+	});
+}

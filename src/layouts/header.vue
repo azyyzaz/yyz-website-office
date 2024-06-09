@@ -6,7 +6,7 @@
 			</div>
 			<div class="menu_list">
 				<ul>
-					<li
+					<!-- <li
 						:class="
 							item.name === route.name
 								? 'bottom_line'
@@ -19,6 +19,43 @@
 					>
 						{{ item.title }}
 						<div class="fixed_caidan">服务项目栏 悬浮显示的内容, 省略不写...</div>
+					</li> -->
+
+					<li
+						:class="route.name === 'home' ? 'bottom_line' : ''"
+						@click="toLink('home')"
+					>
+						首页
+					</li>
+					<li
+						:class="route.name === 'serviceItems' ? 'bottom_line' : ''"
+						@click="toLink('serviceItems')"
+					>
+						服务项目
+					</li>
+					<li
+						:class="route.name === 'law' ? 'bottom_line' : ''"
+						@click="toLink('law')"
+					>
+						法律法规
+					</li>
+					<li
+						:class="route.name === 'q&a' ? 'bottom_line' : ''"
+						@click="toLink('q&a')"
+					>
+						Q & A
+					</li>
+					<li
+						:class="route.name === 'about' ? 'bottom_line' : ''"
+						@click="toLink('about')"
+					>
+						关于我们
+					</li>
+					<li
+						:class="route.name === 'contact' ? 'bottom_line' : ''"
+						@click="toLink('contact')"
+					>
+						联系我们
 					</li>
 				</ul>
 			</div>
@@ -37,20 +74,11 @@
 </template>
 
 <script setup>
-	import { ref } from "vue";
 	import { useRouter, useRoute } from "vue-router";
-	const listMenu = ref([
-		{ name: "home", title: "首页" },
-		{ name: "serviceItems", title: "服务项目" },
-		{ name: "law", title: "法律法规" },
-		{ name: "q&a", title: "Q & A" },
-		{ name: "about", title: "关于我们" },
-		{ name: "contact", title: "联系我们" },
-	]);
 	const router = useRouter();
 	const route = useRoute();
 	function toLink(params) {
-		router.replace({ name: params.name });
+		router.replace({ name: params });
 	}
 </script>
 <style lang="less">
